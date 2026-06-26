@@ -1,10 +1,51 @@
 (function () {
 
   var DATA = {
-    name: 'Lt Gen O.O. Oluyede',
+    name: 'Gen O.O. Oluyede',
     titleRole: 'Initiator — Depot Nigerian Army, Osogbo',
-    biography: [],      /* to be filled */
-    achievements: [],   /* to be filled */
+    biography: [
+      'General Olufemi Olatubosun Oluyede (N/9318) was born on 21 June 1968 in Ikere-Ekiti Local Government Area of Ekiti State. He was granted Regular Combatant Commission as a member of 39 Regular Course on 19 September 1992 in the rank of Second Lieutenant with seniority in the same rank effective 12 September 1987. He is of the Infantry Corps and rose to the rank of General in November 2024. The senior officer has attended several courses and performed creditably well. These courses include Young Officers\' Course (Infantry), Regimental Signal Officers\' Course, Junior Staff Course, Senior Staff Course, Military Observer Course, Logistics Officers\' Course, Commanding Officers\' Course and Senior Executive Course at the National Institute for Policy and Strategic Studies. He holds a Bachelor of Science Degree in Economics.',
+      'General Olufemi Olatubosun Oluyede has continued to prove himself as a competent and professional soldier with reputable military regimentation and bearing. He has held several command, staff, instructional and operational appointments. They include Platoon Commander/Adjutant at 65 Battalion, Company Commander at 177 Guards Battalion and later posted to Headquarters Guards Brigade as a staff officer. He also served at the Nigerian Defence Academy as an instructor and later a senior instructor. Thereafter, General Oluyede was posted to Amphibious Training School as the Commandant. General Oluyede has participated in several operations which include Economic Community of West African States Monitoring Group (ECOMOG) mission in Liberia, Operation HARMONY IV in Bakassi and Operation HADIN KAI.',
+      'The erudite senior officer has also carved a niche for himself in the realm of operations especially in the North East theatre of operations where he commanded 27 Task Force Brigade. His gallantry as the Brigade Commander saw him elevated as the Sector Commander, Headquarters Sector 2 Operation HADIN KAI where he commanded several successful operations which led to the neutralization of some key Boko Haram Terrorists\' commanders and several foot soldiers. General Oluyede was also a Director at the Army Headquarters Department of Policy and Plans. He was subsequently posted to Headquarters 6 Division as the General Officer Commanding. General Oluyede served as the Commander of the elite Infantry Corps prior to his appointment as the 23rd Chief of Army Staff by the President Commander-in-Chief of the Armed Forces, President Bola Ahmed Tinubu GCFR in October 2024.',
+      'In recognition of his meritorious service, absolute dedication to the Nation and numerous exploits in various theatres of operations within and outside the country, he was bestowed with several honours and awards. They include the Nigerian Army Medal, Corps Medal of Honour, Grand Service Star, Pass Staff Course and Member National Institute. Others are Field Command Medal, Field Command Medal of Honour as well as Field Training Medal. General Oluyede was also a recipient of the Chief of Army Staff Commendation Award.',
+      'General Oluyede is a devoted Christian. He is happily married and blessed with three children. At his leisure, he enjoys reading, playing badminton and travelling.'
+    ],
+    achievements: [
+      {
+        category: 'Honours & Awards',
+        items: [
+          'Nigerian Army Medal',
+          'Corps Medal of Honour',
+          'Grand Service Star',
+          'Pass Staff Course',
+          'Member National Institute (mni)',
+          'Field Command Medal',
+          'Field Command Medal of Honour',
+          'Field Training Medal',
+          'Chief of Army Staff Commendation Award'
+        ]
+      },
+      {
+        category: 'Operational Distinctions',
+        items: [
+          'ECOMOG Mission — Liberia',
+          'Operation HARMONY IV — Bakassi',
+          'Commander, 27 Task Force Brigade — North East Theatre',
+          'Sector Commander, HQ Sector 2 Operation HADIN KAI — led operations resulting in neutralization of key Boko Haram Terrorist commanders',
+          'Operation HADIN KAI'
+        ]
+      },
+      {
+        category: 'Key Appointments',
+        items: [
+          'Commandant, Amphibious Training School',
+          'Director, Army Headquarters Department of Policy and Plans',
+          'General Officer Commanding, Headquarters 6 Division',
+          'Commander, Infantry Corps',
+          '23rd Chief of Army Staff — appointed by President Bola Ahmed Tinubu GCFR, October 2024'
+        ]
+      }
+    ],
     gallery: [
       {
         file: 'Acting-COAS-Assumption-of-duty.jpg',
@@ -140,12 +181,27 @@
     var target = document.getElementById(targetId);
     if (!target) return;
 
-    var content = '<div class="bio-pending">' +
-      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">' +
-      '<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>' +
-      '</svg>' +
-      '<p>Achievements coming soon</p>' +
-      '</div>';
+    var content;
+    if (DATA.achievements && DATA.achievements.length) {
+      content = '<div class="achieve-scroll">' +
+        DATA.achievements.map(function (section) {
+          return '<div class="achieve-section">' +
+            '<h3 class="achieve-cat">' + section.category + '</h3>' +
+            '<ul class="achieve-list">' +
+            section.items.map(function (item) {
+              return '<li class="achieve-item">' + item + '</li>';
+            }).join('') +
+            '</ul></div>';
+        }).join('') +
+        '</div>';
+    } else {
+      content = '<div class="bio-pending">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">' +
+        '<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>' +
+        '</svg>' +
+        '<p>Achievements coming soon</p>' +
+        '</div>';
+    }
 
     target.innerHTML =
       '<div class="detail-heading">Achievements</div>' +

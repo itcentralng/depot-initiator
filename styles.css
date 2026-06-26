@@ -317,6 +317,32 @@ body { animation: pageLoad 0.8s ease both; }
 }
 .bio-para:last-child { margin-bottom: 0; }
 
+/* Achievements */
+.achieve-scroll {
+  height: calc(((min(1036px, 100vw - 64px) - 14px) / 2) * 0.75 * 4 + 42px);
+  max-height: calc(100vh - var(--navbar-h) - 156px);
+  overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
+}
+.achieve-section { margin-bottom: 28px; }
+.achieve-section:last-child { margin-bottom: 0; }
+.achieve-cat {
+  font-family: var(--f-head); font-size: 0.78rem; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold-dim); margin-bottom: 12px;
+  padding-bottom: 8px; border-bottom: 1px solid var(--gold-line);
+}
+.achieve-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.achieve-item {
+  font-family: var(--f-serif); font-size: 1.15rem; line-height: 1.6;
+  color: rgba(240,232,218,0.88);
+  padding-left: 20px; position: relative;
+}
+.achieve-item::before {
+  content: ''; position: absolute; left: 0; top: 0.65em;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--gold-dim);
+}
+
 /* Gallery */
 /* Bio, Achievements, Gallery — compact card, centered in layout */
 body[data-page="gallery"] .detail-shell,
