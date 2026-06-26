@@ -3,7 +3,8 @@
   var DATA = {
     name: 'Lt Gen O.O. Oluyede',
     titleRole: 'Initiator — Depot Nigerian Army, Osogbo',
-    biography: [],   /* to be filled */
+    biography: [],      /* to be filled */
+    achievements: [],   /* to be filled */
     gallery: [
       {
         file: 'Acting-COAS-Assumption-of-duty.jpg',
@@ -110,6 +111,23 @@
     timer = setTimeout(tick, 1800);
   }
 
+  /* ── Achievements page ──────────────────────────────── */
+  function renderAchievements(targetId) {
+    var target = document.getElementById(targetId);
+    if (!target) return;
+
+    var content = '<div class="bio-pending">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">' +
+      '<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>' +
+      '</svg>' +
+      '<p>Achievements coming soon</p>' +
+      '</div>';
+
+    target.innerHTML =
+      '<div class="detail-heading">Achievements</div>' +
+      '<div class="detail-card">' + content + '</div>';
+  }
+
   /* ── Gallery page ───────────────────────────────────── */
   function renderGallery(targetId) {
     var target = document.getElementById(targetId);
@@ -164,6 +182,8 @@
   if (page === 'bio') {
     renderBiography('bioPage');
     startAutoScroll('bioPage');
+  } else if (page === 'achievements') {
+    renderAchievements('achievementsPage');
   } else if (page === 'gallery') {
     renderGallery('galleryPage');
   } else {
