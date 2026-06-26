@@ -295,7 +295,11 @@ body { animation: pageLoad 0.8s ease both; }
 }
 
 /* Bio */
-.bio-scroll { height: 100%; overflow: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+.bio-scroll {
+  height: calc(((min(1036px, 100vw - 64px) - 14px) / 2) * 0.75 * 4 + 42px);
+  max-height: calc(100vh - var(--navbar-h) - 156px);
+  overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
+}
 .bio-pending {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   height: 100%; gap: 16px;
@@ -314,7 +318,19 @@ body { animation: pageLoad 0.8s ease both; }
 .bio-para:last-child { margin-bottom: 0; }
 
 /* Gallery */
-.gallery-scroll { height: 100%; overflow: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+/* Bio, Achievements, Gallery — compact card, centered in layout */
+body[data-page="gallery"] .detail-shell,
+body[data-page="bio"] .detail-shell,
+body[data-page="achievements"] .detail-shell { height: auto; }
+
+body[data-page="gallery"] .detail-card,
+body[data-page="bio"] .detail-card,
+body[data-page="achievements"] .detail-card { flex: none; height: auto; }
+.gallery-scroll {
+  height: calc(((min(1036px, 100vw - 64px) - 14px) / 2) * 0.75 * 4 + 42px);
+  max-height: calc(100vh - var(--navbar-h) - 156px);
+  overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
+}
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
