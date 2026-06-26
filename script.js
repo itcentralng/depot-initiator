@@ -21,6 +21,30 @@
       {
         file: 'Lt-Gen.-Olufemi-Oluyede-on-the-news.webp',
         caption: 'Lt Gen Olufemi Oluyede featured on national news'
+      },
+      {
+        file: 'at-the-army-162th-annual-interdenomination-service.jpg',
+        caption: 'At the Army 162nd Annual Interdenominational Service'
+      },
+      {
+        file: 'collaboration-with-NIPSS.jpg',
+        caption: 'Collaboration with the National Institute for Policy and Strategic Studies'
+      },
+      {
+        file: 'courtey-visit-from-AGF.jpeg',
+        caption: 'Courtesy visit from the Attorney General of the Federation'
+      },
+      {
+        file: 'meeting-with-ministriy-of-defence-of-serbia.jpg',
+        caption: 'Meeting with the Ministry of Defence of Serbia'
+      },
+      {
+        file: 'more-in-the-news.jpeg',
+        caption: 'Lt Gen Oluyede in the news'
+      },
+      {
+        file: 'with-the-US-Special-forces.webp',
+        caption: 'With the United States Special Forces'
       }
     ]
   };
