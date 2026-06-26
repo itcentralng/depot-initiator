@@ -3,38 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Initiator App</title>
+  <title>Initiator — Nigerian Army Depot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <main class="shell portrait">
-    <header class="header card">
-      <h1>Initiator</h1>
-      <p>General Oluyede</p>
-    </header>
+<body data-page="home">
 
-    <section class="content">
-      <article class="card photo-card">
-        <h2 id="name">Pending name</h2>
-        <div class="placeholder">Portrait placeholder</div>
-      </article>
+  <div class="bg-layer" aria-hidden="true">
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source src="assets/images/nigerian_army_depot_background.mp4" type="video/mp4">
+    </video>
+    <div class="bg-overlay"></div>
+  </div>
 
-      <article class="card">
-        <h2>Biography</h2>
-        <p id="bio">Pending biography</p>
-      </article>
+  <div class="strips-container" aria-hidden="true">
+    <div class="strip s1"></div>
+    <div class="strip s2"></div>
+    <div class="strip s3"></div>
+    <div class="strip s4"></div>
+    <div class="strip s5"></div>
+  </div>
 
-      <article class="card">
-        <h2>Achievements</h2>
-        <ul id="achievements"></ul>
-      </article>
+  <div class="page-view active" data-page="home">
 
-      <article class="card">
-        <h2>Gallery</h2>
-        <div id="gallery" class="gallery"></div>
-      </article>
-    </section>
-  </main>
+    <nav class="navbar">
+      <img src="assets/images/logo.png" alt="Depot Logo" class="nav-logo" onerror="this.style.display='none'">
+      <div class="brand">
+        <span class="brand-main">NIGERIAN ARMY DEPOT</span>
+        <span class="brand-sub">Initiator</span>
+      </div>
+    </nav>
+
+    <main class="home-body">
+
+      <section class="hero-panel">
+        <div class="hero-badge">Initiator</div>
+        <div class="portrait-frame">
+          <img class="portrait-img"
+               src="assets/images/Portrait-Lt_Gen_OO_Oluyede.jpg"
+               alt="Lt Gen O.O. Oluyede">
+          <div class="portrait-shine" aria-hidden="true"></div>
+        </div>
+        <div class="nameplate">
+          <h1 id="name">Lt Gen O.O. Oluyede</h1>
+          <p class="title-role" id="title-role">Initiator — Depot Nigerian Army, Osogbo</p>
+        </div>
+      </section>
+
+      <section class="action-panel">
+        <div class="action-buttons">
+          <a class="action-link" href="biography.html">
+            <span class="action-title">Biography</span>
+            <span class="action-desc">Read the full life story</span>
+          </a>
+          <a class="action-link" href="gallery.html">
+            <span class="action-title">Gallery</span>
+            <span class="action-desc">Open the image collection</span>
+          </a>
+        </div>
+      </section>
+
+    </main>
+  </div>
 
   <script src="script.js"></script>
 </body>

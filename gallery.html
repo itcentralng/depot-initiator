@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Initiator — Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="gallery">
+
+  <div class="bg-layer" aria-hidden="true">
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source src="assets/images/nigerian_army_depot_background.mp4" type="video/mp4">
+    </video>
+    <div class="bg-overlay"></div>
+  </div>
+
+  <div class="page-view active" data-page="gallery">
+    <nav class="navbar">
+      <img src="assets/images/logo.png" alt="Depot Logo" class="nav-logo" onerror="this.style.display='none'">
+      <div class="brand">
+        <span class="brand-main">NIGERIAN ARMY DEPOT</span>
+        <span class="brand-sub">Initiator</span>
+      </div>
+    </nav>
+
+    <a class="close-btn" href="index.html" aria-label="Back to home" title="Back">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+    </a>
+
+    <main class="detail-layout">
+      <section id="galleryPage" class="detail-shell"></section>
+    </main>
+
+    <div id="galleryModal" class="gallery-modal" aria-hidden="true">
+      <button id="galleryModalClose" class="gallery-modal-close" aria-label="Close image">&times;</button>
+      <img id="galleryModalImage" alt="">
+      <div id="galleryModalCaption" class="gallery-modal-caption"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
