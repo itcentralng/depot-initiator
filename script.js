@@ -33,9 +33,17 @@
   /* ── Strip transition ───────────────────────────────── */
   function runStrips() {
     var strips = document.querySelectorAll('.strip');
+    var view   = document.querySelector('.page-view.active');
     if (!strips.length) return;
+
+    /* hide the content until strips sweep out */
+    if (view) { view.style.opacity = '0'; view.style.transition = 'none'; }
+
     strips.forEach(function (s) { s.classList.add('slide-in'); });
+
     setTimeout(function () {
+      /* reveal content, then sweep strips out */
+      if (view) { view.style.transition = ''; view.style.opacity = '1'; }
       strips.forEach(function (s) { s.classList.remove('slide-in'); s.classList.add('slide-out'); });
       setTimeout(function () {
         strips.forEach(function (s) { s.classList.remove('slide-out'); });
