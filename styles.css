@@ -52,23 +52,6 @@ body { animation: pageLoad 0.8s ease both; }
   pointer-events: none;
 }
 
-/* ─── Five-strip transition ──────────────────────────── */
-.strips-container {
-  position: fixed; inset: 0; z-index: 500;
-  display: flex; pointer-events: none;
-}
-.strip {
-  flex: 1;
-  transform: translateX(-110%) skewX(-10deg);
-  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.s1 { background: #0a100d; transition-delay:   0ms; }
-.s2 { background: #0e1610; transition-delay:  60ms; }
-.s3 { background: #122019; transition-delay: 120ms; }
-.s4 { background: #0e1610; transition-delay: 180ms; }
-.s5 { background: #0a100d; transition-delay: 240ms; }
-.strip.slide-in  { transform: translateX(0)    skewX(-10deg); }
-.strip.slide-out { transform: translateX(110%) skewX(-10deg); }
 
 /* ─── Page view ──────────────────────────────────────── */
 .page-view {

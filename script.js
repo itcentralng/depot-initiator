@@ -96,25 +96,32 @@
     if (el) el.textContent = val;
   }
 
-  /* ── Strip transition ───────────────────────────────── */
-  function runStrips() {
-    var strips = document.querySelectorAll('.strip');
-    var view   = document.querySelector('.page-view.active');
-    if (!strips.length) return;
+  /* ── SPA Navigation ─────────────────────────────────── */
+  var currentPage = 'home';
 
-    /* hide the content until strips sweep out */
-    if (view) { view.style.opacity = '0'; view.style.transition = 'none'; }
+  window.navigateTo = function (page) {
+    if (page === currentPage) return;
+    showPage(page);
+  };
 
-    strips.forEach(function (s) { s.classList.add('slide-in'); });
+  window.closeApp = function () { window.close(); };
 
-    setTimeout(function () {
-      /* reveal content, then sweep strips out */
-      if (view) { view.style.transition = ''; view.style.opacity = '1'; }
-      strips.forEach(function (s) { s.classList.remove('slide-in'); s.classList.add('slide-out'); });
-      setTimeout(function () {
-        strips.forEach(function (s) { s.classList.remove('slide-out'); });
-      }, 650);
-    }, 850);
+  function showPage(page) {
+    document.querySelectorAll('.page-view').forEach(function (el) {
+      el.classList.remove('active');
+    });
+    var target = document.getElementById('page-' + page);
+    if (target) target.classList.add('active');
+    currentPage = page;
+
+    if (page === 'bio') {
+      renderBiography('bioPage');
+      startAutoScroll('bioPage');
+    } else if (page === 'achievements') {
+      renderAchievements('achievementsPage');
+    } else if (page === 'gallery') {
+      renderGallery('galleryPage');
+    }
   }
 
   /* ── Biography page ─────────────────────────────────── */
@@ -258,16 +265,5 @@
   setText('name', DATA.name);
   setText('title-role', DATA.titleRole);
 
-  var page = document.body.dataset.page || 'home';
-  if (page === 'bio') {
-    renderBiography('bioPage');
-    startAutoScroll('bioPage');
-  } else if (page === 'achievements') {
-    renderAchievements('achievementsPage');
-  } else if (page === 'gallery') {
-    renderGallery('galleryPage');
-  } else {
-    runStrips();
-  }
 
 })();

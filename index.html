@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body data-page="home">
+<body>
 
   <div class="bg-layer" aria-hidden="true">
     <video class="bg-video" autoplay muted loop playsinline>
@@ -18,27 +18,23 @@
     <div class="bg-overlay"></div>
   </div>
 
-<div class="page-view active" data-page="home">
-
+  <!-- ══ HOME ══ -->
+  <div class="page-view active" id="page-home">
     <nav class="navbar">
       <img src="assets/images/logo.png" alt="Depot Logo" class="nav-logo" onerror="this.style.display='none'">
       <div class="brand">
         <span class="brand-main">NIGERIAN ARMY DEPOT</span>
         <span class="brand-sub">Initiator</span>
       </div>
-      <button class="kiosk-close" onclick="window.close()" title="Close">
+      <button class="kiosk-close" onclick="closeApp()" title="Close">
         <svg viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
       </button>
     </nav>
-
     <main class="home-body">
-
       <section class="hero-panel">
         <div class="hero-badge">Initiator</div>
         <div class="portrait-frame">
-          <img class="portrait-img"
-               src="assets/images/Portrait-Lt_Gen_OO_Oluyede.jpg"
-               alt="Lt Gen O.O. Oluyede">
+          <img class="portrait-img" src="assets/images/Portrait-Lt_Gen_OO_Oluyede.jpg" alt="Lt Gen O.O. Oluyede">
           <div class="portrait-shine" aria-hidden="true"></div>
         </div>
         <div class="nameplate">
@@ -46,27 +42,100 @@
           <p class="title-role" id="title-role">Initiator — Depot Nigerian Army, Osogbo</p>
         </div>
       </section>
-
       <section class="action-panel">
         <div class="action-buttons">
-          <a class="action-link" href="biography.html">
+          <button class="action-link" onclick="navigateTo('bio')">
             <span class="action-title">Biography</span>
             <span class="action-desc">Read the full life story</span>
-          </a>
-          <a class="action-link" href="gallery.html">
+          </button>
+          <button class="action-link" onclick="navigateTo('gallery')">
             <span class="action-title">Gallery</span>
             <span class="action-desc">Open the image collection</span>
-          </a>
-          <a class="action-link" href="achievements.html">
+          </button>
+          <button class="action-link" onclick="navigateTo('achievements')">
             <span class="action-title">Achievements</span>
             <span class="action-desc">Honours &amp; decorations</span>
-          </a>
+          </button>
         </div>
       </section>
+    </main>
+  </div>
 
+  <!-- ══ BIOGRAPHY ══ -->
+  <div class="page-view" id="page-bio">
+    <nav class="navbar">
+      <img src="assets/images/logo.png" alt="Depot Logo" class="nav-logo" onerror="this.style.display='none'">
+      <div class="brand">
+        <span class="brand-main">NIGERIAN ARMY DEPOT</span>
+        <span class="brand-sub">Initiator</span>
+      </div>
+      <button class="kiosk-close" onclick="closeApp()" title="Close">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      </button>
+    </nav>
+    <button class="close-btn" onclick="navigateTo('home')" aria-label="Back to home" title="Back">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <main class="detail-layout">
+      <section id="bioPage" class="detail-shell"></section>
+    </main>
+  </div>
+
+  <!-- ══ GALLERY ══ -->
+  <div class="page-view" id="page-gallery">
+    <nav class="navbar">
+      <img src="assets/images/logo.png" alt="Depot Logo" class="nav-logo" onerror="this.style.display='none'">
+      <div class="brand">
+        <span class="brand-main">NIGERIAN ARMY DEPOT</span>
+        <span class="brand-sub">Initiator</span>
+      </div>
+      <button class="kiosk-close" onclick="closeApp()" title="Close">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      </button>
+    </nav>
+    <button class="close-btn" onclick="navigateTo('home')" aria-label="Back to home" title="Back">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <main class="detail-layout">
+      <section id="galleryPage" class="detail-shell"></section>
+    </main>
+    <div id="galleryModal" class="gallery-modal" aria-hidden="true">
+      <button id="galleryModalClose" class="gallery-modal-close" aria-label="Close image">&times;</button>
+      <img id="galleryModalImage" alt="">
+      <div id="galleryModalCaption" class="gallery-modal-caption"></div>
+    </div>
+  </div>
+
+  <!-- ══ ACHIEVEMENTS ══ -->
+  <div class="page-view" id="page-achievements">
+    <nav class="navbar">
+      <img src="assets/images/logo.png" alt="Depot Logo" class="nav-logo" onerror="this.style.display='none'">
+      <div class="brand">
+        <span class="brand-main">NIGERIAN ARMY DEPOT</span>
+        <span class="brand-sub">Initiator</span>
+      </div>
+      <button class="kiosk-close" onclick="closeApp()" title="Close">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      </button>
+    </nav>
+    <button class="close-btn" onclick="navigateTo('home')" aria-label="Back to home" title="Back">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <main class="detail-layout">
+      <section id="achievementsPage" class="detail-shell"></section>
     </main>
   </div>
 
   <script src="script.js"></script>
+  <script>
+    var bgv = document.querySelector('.bg-video');
+    if (bgv) { bgv.muted = true; bgv.play().catch(function(){}); }
+  </script>
 </body>
 </html>
